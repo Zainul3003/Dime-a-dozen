@@ -1,0 +1,33 @@
+{
+  "name": "five-n-dime",
+  "version": "1.0.0",
+  "description": "\"Platform to connect people with the local Shops\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DynamicGreedy/five-n-dime.git"
+  },
+  "author": "\"minions\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DynamicGreedy/five-n-dime/issues"
+  },
+  "homepage": "https://github.com/DynamicGreedy/five-n-dime#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.1",
+    "fast-two-sms": "^3.0.0",
+    "mongoose": "^5.10.6",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}

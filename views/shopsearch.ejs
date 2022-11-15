@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>5-&-DIME</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css"/>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="./" class="logo">5-&-dime</a>
+					<nav id="nav">
+						<a href="/#about">About</a>
+						<a href="/#addshop">Add Shop</a>
+						<a href="/#shopnow">Shop Now</a>
+						<a href="/#donate">Donate</a>
+						<a href="./finalfilter#contactus">Contact Us</a>
+						<% if (typeof user != 'undefined' ) { %>
+							<button class="button special">
+								<% if (user.addShop) { %>
+									<a href="/myshop">My Shop</a>
+								<% } else { %>
+									<a href="/"><%= user.name %></a>
+								<% } %>
+							</button>
+							<button class="button special"><a href="/logout">Logout</a></button>
+						<% }else{ %>
+							<button class="button special"><a href="./formlogin">Login</a></button>
+							<button class="button special"><a href="./formregister">Register</a></button>
+						<% } %>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			<%- include("./partials/messages") %>
+
+        <section id="main">
+            <div class="inner">
+                <header class="major special">
+                    <h1><%= data[0].shopname %></h1>
+                    <br>
+				     </header>
+
+				<ul class="alt">
+					<!-- <li></li> -->
+					<li><p>Live Current customer count: <span><%= data[0].items.length %></span> </p></li>
+					<li><p>Next customer's expected time: <span><%= data[0].items.length*7 %> minutes from now</span></p></li>
+					<li></li>
+				</ul>
+
+                <!-- Text -->
+                    <section>
+						<h4>Shop Owner Name: <%= data[0].ownername %></h4>
+						<br>
+						<%if (data[0].donationwant == 'Y' || data[0].donationwant == 'YES') { %>
+							<ul class="alt">
+								<p>We need Donation!!</p>
+								<p>We would be very thankful to you if you could offer some help.</p>
+								<li></li>
+							</ul>
+							<ul class="actions">
+								<li><a href="/formdonate" class="button alt">Donate</a></li>
+							</ul>
+						<% } %>
+						<br>
+						<p>Shop About:</p>
+						<pre><code>
+<%= data[0].aboutshop %>
+						</code></pre>
+					</section>
+                    <br><br>
+                    <section>
+						<form method="post" action="/addqueuepage">
+							<input type="hidden" name="shopname" value="<%=data[0].shopname%>">
+							<input type="hidden" name="pincode" value="<%=data[0].pincode%>">
+							<input type="hidden" name="area" value="<%=data[0].area%>">
+							<div class="row uniform 50%">
+								<div class="6u 12u$(xsmall)">
+									<input type="tel" name="phonenumber" id="demo-name" value="" placeholder="Enter 10 digit phone number without country code" />
+								</div>
+							</div>
+
+							<br>
+							<div class="field">
+								<label for="listofitems">List of items</label>
+								<textarea name="listofitems" id="listofitems" rows="1" placeholder="Add your items"></textarea>
+							</div>
+							<br>
+							<div class="3u 6u(small) 12u$(xsmall)">
+								<ul class="actions vertical">
+									<input(type="hidden", name="_method", value="PUT")>
+									<input id="butt" type="submit" value="Book Your Number">
+								</ul>
+							</div>
+						</form>
+					</section>
+
+            </div>
+		</section>
+
+		<!-- contactus -->
+		<section id="contactus" style="background-color:#4a5050">
+			<div class="inner" >
+				<header>
+					<h2 style="color:#e5474b">CONTACT US<br><br></h2>
+				</header>
+				<div class="copyright" style="color:#e5474b">
+					<span style="font-size:18px">&copy; 2020 :</span>  <a style="text-decoration: none" href ="https://github.com/DynamicGreedy/5-n-Dime"><span class="icon fa-envelope-o"></span> minions</a>
+					<br> <span style="font-size:18px">Developers :</span> <a style="text-decoration: none" href="https://www.linkedin.com/in/pranjul-pal-51a24217b/"><span class="icon fa-linkedin"></span> Pranjul Pal </a>  <a style="text-decoration: none" href="https://www.linkedin.com/in/roopam-mishra-713583189/"><span class="icon fa-linkedin"></span> Roopam Mishra </a> <a style="text-decoration: none" href="https://www.linkedin.com/in/sonali-singh-16m/"> <span class="icon fa-linkedin"></span> Sonali Singh </a><a style="text-decoration: none" href="https://www.linkedin.com/in/markamansingh/"><span class="icon fa-linkedin"></span> Aman Kr Singh </a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	</body>
+</html>
