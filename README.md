@@ -1,5 +1,5 @@
-### :rocket: Project: 5 & DIME
-    5 & DIME is a webapp developed for connecting local shops to their regular customers by online
+### :rocket: Project: Dime-a-Dozen
+    Dime-a-Dozen is a webapp developed for connecting local shops to their regular customers by online
     mode and thus also maintaining social distancing, here shops can ask for donation if they really 
     need some funding, shops can also put up advertisements for offers.
 ### :dart: Final prototye of project: 
