@@ -42,7 +42,7 @@
     From shop owners perspective:
     Shop owners dash board -> Editing of offers etc. info -> Deque feature -> Mesaage to customer feature
     
-   :zap: Anyone can test live working model <a href="https://five-n-dime.herokuapp.com/" target="_blank">here</a>.
+   :zap: Anyone can test live working model <a href="https://dime-a-dozen.onrender.com" target="_blank">here</a>.
 
 ### :boy: Dummy customer:
     You can Register/Login with your own Email Id or you can use our dummy data
